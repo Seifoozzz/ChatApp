@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+        <variable
+            name="VM"
+            type="com.example.mychatapp2.ui_EditRoom.EditRoomViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@android:color/white"
+        tools:context=".AddRoomActivity">
+
+        <ImageView
+            android:id="@+id/logoo"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/logo"
+            android:layout_margin="20dp"
+            android:textColor="@color/colorPrimary"
+            android:layout_gravity="start"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_margin="5dp"
+            android:padding="15dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/logoo"
+
+            >
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/roomImage"
+                android:layout_width="140dp"
+                android:layout_height="120dp"
+                app:civ_border_width="1dp"
+                android:src="@drawable/logo"
+                app:civ_border_overlay="true"
+                android:onClick="@{()->VM.onChooseImage()}"
+                android:layout_gravity="center" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/Nameroom"
+                android:layout_width="350dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:layout_marginTop="20dp">
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Room Name"
+                    android:text="@={VM.roomName}"
+                    android:inputType="text" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <EditText
+                android:id="@+id/description"
+                android:layout_width="350dp"
+                android:layout_height="wrap_content"
+                android:hint="Short Description"
+                android:text="@={VM.roomDesc}"
+                android:layout_marginTop="30dp"
+                android:layout_gravity="center"
+                android:inputType="text" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/addRoomBtn"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                app:cardBackgroundColor="@android:color/black"
+                app:cardElevation="8dp"
+                android:onClick="@{()->VM.onEditroomClick()}"
+                android:layout_gravity="center"
+                android:layout_marginTop="50dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Edit Room"
+                    android:textStyle="bold"
+                    android:textSize="30sp"
+                    android:layout_margin="6dp"
+                    android:textColor="@android:color/white"
+                    android:layout_gravity="center" />
+            </androidx.cardview.widget.CardView>
+        </LinearLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

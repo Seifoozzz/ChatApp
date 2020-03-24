@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="85dp"
+    app:cardElevation="8dp"
+    android:id="@+id/RoomCard"
+    android:layout_margin="5dp"
+    app:cardCornerRadius="8dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/roomUserImage"
+            android:layout_width="60dp"
+            android:layout_height="70dp"
+            android:src="@drawable/logo"
+            app:civ_border_width="1dp"
+            app:civ_border_overlay="true"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <TextView
+            android:id="@+id/roomName"
+            android:layout_width="230dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="2dp"
+            android:textSize="30sp"
+            android:gravity="center"
+            android:textColor="@android:color/black"
+            app:layout_constraintStart_toEndOf="@id/roomUserImage"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Room Name" />
+
+        <TextView
+            android:id="@+id/roomDescription"
+            android:layout_width="230dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="2dp"
+            android:layout_marginTop="2dp"
+            android:textSize="18sp"
+            android:gravity="center"
+            app:layout_constraintStart_toEndOf="@id/roomUserImage"
+            app:layout_constraintTop_toBottomOf="@id/roomName"
+            tools:text=" room Description" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>

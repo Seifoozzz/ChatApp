@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="VM"
+            type="com.example.mychatapp2.ui_Main.MainViewModel" />
+    </data>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@android:color/white"
+        tools:context=".ui_Main.MainActivity">
+
+        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+            android:id="@+id/Swipe"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="50dp">
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/RecyclerView"
+                android:layout_width="match_parent"
+                android:background="@color/colorAccentT"
+                android:layout_marginTop="2dp"
+                android:padding="2dp"
+                android:filterTouchesWhenObscured="true"
+                tools:listitem="@layout/item_room"
+                android:layout_height="wrap_content"/>
+        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/addBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
+            android:layout_margin="20dp"
+            android:theme="@style/Widget.MaterialComponents.FloatingActionButton"
+            app:elevation="4dp"
+            android:backgroundTintMode="add"
+            android:onClick="@{()->VM.OnAddClick()}"
+            android:src="@drawable/add_bttn"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/ToolBar"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginBottom="8dp"
+                app:menu="@menu/main_minu"
+                android:background="@color/colorPrimaryL"
+                app:titleTextColor="@android:color/black"
+                app:title="The Chat Room"
+                style="@style/Widget.AppCompat.Toolbar" />
+        </LinearLayout>
+    </FrameLayout>
+</layout>
